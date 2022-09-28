@@ -1,3 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+#root {
+  --toastify-color-light: #324753;
+  --toastify-text-color-light: white;
+  --toastify-color-progress-light: #38FDCE;
+  --toastify-font-family: 'SF Compact';
+}
+
+
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.modal {
+  position: fixed; /* Stay in place */
+  z-index: 50; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: inherit; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+html, body, .App, .App>div {
+  height: 100%;
+  font-family: 'SF Compact';
+  background-color: '#1A323F';
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -5,9 +66,71 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #07141B;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+html.dark {
+  background-color: #07141B;
+}
+
+
+.projecthover:hover {
+  -webkit-transform: scale(1.5);
+  -moz-transform: scale(1.5);
+  -ms-transform: scale(1.5);
+  transform: scale(1.5);
+  -webkit-transition: -webkit-transform 0.25s;
+  -moz-transition: -moz-transform 0.25s;
+  -ms-transition:  -ms-transform 0.25s;
+  transition:  transform 0.25s;
+  position: relative;
+  z-index: 100;
+  border-radius: 25px;
+  border-color: black;
+  border-style: solid;
+  border-width: 2px;
+}
+
+.copyHidden {
+  display: none;
+}
+.copyHidden:hover {
+  display: block;
+}
+
+.copyShow {
+  display: block;
+}
+.copyShow:hover {
+  display: none;
+}
+
+.copyHider:hover .copyHidden {
+  display: block;
+}
+.copyHider:hover .copyShow {
+  display: none;
+}
+
+/* Chrome, Safari and Opera */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+
+.dark::-webkit-scrollbar {
+width: 10px;
+height: 10px;
+}
+.dark::-webkit-scrollbar-track-piece  {
+background-color: #040C10;
+}
+.dark::-webkit-scrollbar-thumb:vertical {
+height: 30px;
+background-color: #0E2735;
 }
