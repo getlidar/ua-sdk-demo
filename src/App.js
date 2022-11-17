@@ -6,8 +6,8 @@ function App() {
   const [wallet,setWallet] = useState('');
 
   async function mint(){
-    // todo: Log referral here
-    console.log(wallet)
+    // todo: Log referral here    
+    console.log(wallet);
   }
 
   return (
