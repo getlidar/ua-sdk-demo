@@ -7708,10 +7708,10 @@ redent@^3.0.0:
     indent-string "^4.0.0"
     strip-indent "^3.0.0"
 
-refmint-sdk@^1.1.18:
-  version "1.1.18"
-  resolved "https://registry.npmjs.org/refmint-sdk/-/refmint-sdk-1.1.18.tgz"
-  integrity sha512-9HtF4P6HrKeny2fy6DZYLq5BGYZKp2iuxHrI5Aj1qi0OtpXZPReP79vpW1CTyhQWMuLey7bSnWAA+HmBlJwLKg==
+refmint-sdk@^1.1.19:
+  version "1.1.19"
+  resolved "https://registry.npmjs.org/refmint-sdk/-/refmint-sdk-1.1.19.tgz"
+  integrity sha512-ahzLaQaiuakovwwmWMru5WjfMA8surMznPIn+dc8pB521wgSzPP7//zDCCqP5DAU24a/7ng8lW7Cca+fUbTktQ==
   dependencies:
     axios "^0.27.2"
 
