@@ -7703,10 +7703,17 @@
     "indent-string" "^4.0.0"
     "strip-indent" "^3.0.0"
 
+<<<<<<< Updated upstream
 "refmint-sdk@^1.1.11":
   "integrity" "sha512-DFLZG9+ljpdc7iKLRsDZVRc5EzFO38LIaYaAi47cBE0UxIAJfQ7wWpmxbxLKunLplS8nBXxRFyitLJM6/z3kvg=="
   "resolved" "https://registry.npmjs.org/refmint-sdk/-/refmint-sdk-1.1.11.tgz"
   "version" "1.1.11"
+=======
+refmint-sdk@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.npmjs.org/refmint-sdk/-/refmint-sdk-1.2.0.tgz"
+  integrity sha512-WcuME9NTWVo9zOXaYBoQlU3zzinxRc+8DYnU8fIKk3Gt6CGQx4cnvZ7AypWkbbGVEbDtVHeLW/RlrUnOyb/SIg==
+>>>>>>> Stashed changes
   dependencies:
     "axios" "^0.27.2"
 
