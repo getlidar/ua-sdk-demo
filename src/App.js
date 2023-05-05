@@ -99,8 +99,7 @@ export default function App() {
     
     refmintCaller.rewards(
       custom_url,
-      campaign_url,
-      wallet_address
+      campaign_url
     ).then((resp) => {
       if (!resp) set_sdk_response('API failed.')
       set_sdk_response(JSON.stringify(resp));
