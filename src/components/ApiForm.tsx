@@ -1,37 +1,33 @@
 import React from 'react';
 import { useState } from "react";
-import Refmint from "refmint-sdk";
+import Helika from "helika-sdk";
 import { InputSection } from "./InputSection";
-import { useLocation } from "react-router-dom";
-import { BaseURLOptions } from 'refmint-sdk';
+import { Link, useLocation } from "react-router-dom";
+import { BaseURLOptions } from 'helika-sdk';
 
 export function ApiForm() {
 
   const search = useLocation().search;
   const new_referral_link = new URLSearchParams(search).get('r');
 
+  const [custom_url,set_custom_url] = useState<string>('refmintsdk');
+  const [wallet_address,set_wallet_address] = useState<string>('');
+  const [link_id,set_link_id] = useState<string>(new_referral_link ? new_referral_link : 'fqOm45Jv');
+  const [email_address,set_email_address] = useState<string>('');
+  const [phone_number,set_phone_number] = useState<string>('');
+  const [sdk_response,set_sdk_response] = useState<string>('');
+  const [api_key,set_api_key] = useState<string>('kLJfpVvWZ0ERxnMofhP9iRJTxwDapndo8941KuxK76XOOvsyMVsXjihnRTA0R06y');
+
   async function logReferral() {
 
-    let urlOption;
-
-    if (base_url === 'http://localhost:3000') {
-      urlOption = BaseURLOptions.LOCAL;
-    } else if (base_url === 'https://test.refmint.xyz') {
-      urlOption = BaseURLOptions.TESTNET;
-    } else if (base_url === 'https://app.refmint.xyz') {
-      urlOption = BaseURLOptions.MAINNET;
-    } else {
-      set_sdk_response('INVALID BASE_URL');
-    }
-
-    var refmintCaller = new Refmint({
+    const helikaSDK = new Helika.UA({
       apiKey: api_key,
-      baseUrlOption: urlOption
+      baseUrlOption: BaseURLOptions.UA_DEV
     });
     
-    refmintCaller.logReferral(
-      custom_url,
+    helikaSDK.logReferral(
       wallet_address,
+      custom_url,
       link_id,
       email_address,
       phone_number
@@ -46,24 +42,13 @@ export function ApiForm() {
 
   async function logView() {
 
-    let urlOption;
-
-    if (base_url === 'http://localhost:3000') {
-      urlOption = BaseURLOptions.LOCAL;
-    } else if (base_url === 'https://test.refmint.xyz') {
-      urlOption = BaseURLOptions.TESTNET;
-    } else if (base_url === 'https://app.refmint.xyz') {
-      urlOption = BaseURLOptions.MAINNET;
-    } else {
-      set_sdk_response('INVALID BASE_URL');
-    }
-
-    var refmintCaller = new Refmint({
+    const helikaSDK = new Helika.UA({
       apiKey: api_key,
-      baseUrlOption: urlOption
+      baseUrlOption: BaseURLOptions.UA_DEV
     });
+
     
-    refmintCaller.logView(
+    helikaSDK.logView(
       custom_url,
       link_id
     ).then((resp) => {
@@ -77,24 +62,12 @@ export function ApiForm() {
 
   async function isAffiliate() {
 
-    let urlOption;
-
-    if (base_url === 'http://localhost:3000') {
-      urlOption = BaseURLOptions.LOCAL;
-    } else if (base_url === 'https://test.refmint.xyz') {
-      urlOption = BaseURLOptions.TESTNET;
-    } else if (base_url === 'https://app.refmint.xyz') {
-      urlOption = BaseURLOptions.MAINNET;
-    } else {
-      set_sdk_response('INVALID BASE_URL');
-    }
-
-    var refmintCaller = new Refmint({
+    const helikaSDK = new Helika.UA({
       apiKey: api_key,
-      baseUrlOption: urlOption
+      baseUrlOption: BaseURLOptions.UA_DEV
     });
     
-    refmintCaller.isAffiliate(
+    helikaSDK.isAmbassador(
       custom_url,
       wallet_address
     ).then((resp) => {
@@ -106,116 +79,116 @@ export function ApiForm() {
     });
   }
 
-  const [custom_url,set_custom_url] = useState<string>('refmintsdk');
-  const [wallet_address,set_wallet_address] = useState<string>('');
-  const [link_id,set_link_id] = useState<string>(new_referral_link ? new_referral_link : 'fqOm45Jv');
-  const [email_address,set_email_address] = useState<string>('');
-  const [phone_number,set_phone_number] = useState<string>('');
-  const [sdk_response,set_sdk_response] = useState<string>('');
-  const [base_url,set_base_url] = useState<string>('https://test.refmint.xyz');
-  const [api_key,set_api_key] = useState<string>('kLJfpVvWZ0ERxnMofhP9iRJTxwDapndo8941KuxK76XOOvsyMVsXjihnRTA0R06y');
-
   return(
-    <div className='mx-auto flex flex-col max-w-[calc(min(50%,1200px))]'>
-      <div className="w-full flex flex-row justify-center">
-        <InputSection
-          title='Base URL'
-          passwordField={false}
-          value={base_url}
-          setValue={set_base_url}
-          hint={'Defaults to testnet if empty'}
-          isTextField={false}
-        />
-      </div>
-      <div className="w-full flex flex-row justify-center">
-        <InputSection
-          title='API Key'
-          passwordField={false}
-          value={api_key}
-          setValue={set_api_key}
-          hint={'Your API Key'}
-          isTextField={false}
-        />
-      </div>
-      <div className="w-full flex flex-row justify-center">
-        <InputSection
-          title='Custom URL'
-          passwordField={false}
-          value={custom_url}
-          setValue={set_custom_url}
-          hint={'Custom URL of your Refmint project'}
-          isTextField={false}
-        />
-      </div>
-      <div className="w-full flex flex-row justify-center">
-      <InputSection
-        title='Link ID'
-        passwordField={false}
-        value={link_id}
-        setValue={set_link_id}
-        hint={'Affiliate Referral ID'}
-        isTextField={false}
-      />
-      </div>
-      <div className="w-full flex flex-row justify-center">
-      <InputSection
-        title='Wallet Address'
-        passwordField={false}
-        value={wallet_address}
-        setValue={set_wallet_address}
-        hint={'Wallet Address of the Referrer User'}
-        isTextField={false}
-      />
-      </div>
-      <div className="w-full flex flex-row justify-center">
-      <InputSection
-        title='Email Address'
-        passwordField={false}
-        value={email_address}
-        setValue={set_email_address}
-        hint={'Email Address of the referred User'}
-        isTextField={false}
-      />
-      </div>
-      <div className="w-full flex flex-row justify-center">
-      <InputSection
-        title='Phone Number'
-        passwordField={false}
-        value={phone_number}
-        setValue={set_phone_number}
-        hint={'Phone number of the referred User'}
-        isTextField={false}
-      />
-      </div>
-      <div className='flex flex-row space-x-3 mx-auto'>
-        <button
-          className='w-min px-3 mt-5 bg-referralMintColor rounded-lg whitespace-nowrap'
-          onClick={()=>logView()}
+    <div className="w-full max-w-[calc(min(50%,1200px))] py-10 m-auto">
+      <header className="h-min justify-center flex-col py-5">
+        <p className='text-white text-[2em] helikaGradient px-10'>
+          EXAMPLE USER ACQUISITION USE CASE
+        </p>
+      </header>
+
+      <div
+        className='w-full flexrow mb-5'
+      >
+        <Link
+          to={'http://localhost:3001'}
         >
-          LogView
-        </button>
-        <button
-          className='w-min px-3 mt-5 bg-referralMintColor rounded-lg whitespace-nowrap'
-          onClick={()=>logReferral()}
-        >
-          Log Referral
-        </button>
-        <button
-          className='w-min px-3 mt-5 bg-referralMintColor rounded-lg whitespace-nowrap'
-          onClick={()=>isAffiliate()}
-        >
-          IsAffiliate
-        </button>
+          <button className='helikaButtonClass px-10'>
+            Back
+          </button>
+        </Link>
+      </div>
+      <div className='mx-auto flex flex-col gap-y-2'>
+        <div className="w-full flex flex-row justify-center">
+          <InputSection
+            title='API Key'
+            passwordField={false}
+            value={api_key}
+            setValue={set_api_key}
+            hint={'Your API Key'}
+            isTextField={false}
+          />
         </div>
-      <div className="w-full flex flex-row justify-center">
+        <div className="w-full flex flex-row justify-center">
+          <InputSection
+            title='Custom URL'
+            passwordField={false}
+            value={custom_url}
+            setValue={set_custom_url}
+            hint={'Custom URL of your Helika project'}
+            isTextField={false}
+          />
+        </div>
+        <div className="w-full flex flex-row justify-center">
         <InputSection
-          title='Response'
+          title='Link ID'
           passwordField={false}
-          value={sdk_response}
-          setValue={set_sdk_response}
-          hint={'Response from API'}
+          value={link_id}
+          setValue={set_link_id}
+          hint={'Ambassador Referral ID'}
           isTextField={false}
         />
+        </div>
+        <div className="w-full flex flex-row justify-center">
+        <InputSection
+          title='Wallet Address'
+          passwordField={false}
+          value={wallet_address}
+          setValue={set_wallet_address}
+          hint={'Wallet Address of the Referrer User'}
+          isTextField={false}
+        />
+        </div>
+        <div className="w-full flex flex-row justify-center">
+        <InputSection
+          title='Email Address'
+          passwordField={false}
+          value={email_address}
+          setValue={set_email_address}
+          hint={'Email Address of the referred User'}
+          isTextField={false}
+        />
+        </div>
+        <div className="w-full flex flex-row justify-center">
+        <InputSection
+          title='Phone Number'
+          passwordField={false}
+          value={phone_number}
+          setValue={set_phone_number}
+          hint={'Phone number of the referred User'}
+          isTextField={false}
+        />
+        </div>
+        <div className='flex flex-row flex-wrap mx-auto text-black my-5 gap-5'>
+          <button
+            className='helikaButtonClass px-5'
+            onClick={()=>logView()}
+          >
+            LogView
+          </button>
+          <button
+            className='helikaButtonClass px-5'
+            onClick={()=>logReferral()}
+          >
+            Log Referral
+          </button>
+          <button
+            className='helikaButtonClass px-5'
+            onClick={()=>isAffiliate()}
+          >
+            IsAffiliate
+          </button>
+          </div>
+        <div className="w-full flex flex-row justify-center">
+          <InputSection
+            title='Response'
+            passwordField={false}
+            value={sdk_response}
+            setValue={set_sdk_response}
+            hint={'Response from API'}
+            isTextField={false}
+          />
+        </div>
       </div>
     </div>
   );

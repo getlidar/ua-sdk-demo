@@ -49,7 +49,7 @@ export function InputSection({
     buttonDiv = 
       <div className='min-w-fit'>
         <button 
-          className='px-3 min-w-fit bg-referralMintColor8 hover:bg-referralMintColor5 border border-black bg-lightBg6 dark:text-black rounded-lg dark:bg-referralMintColor5 hover:bg-referralMintColor5a'
+          className='px-3 min-w-fit bg-HelikaColor8 hover:bg-HelikaColor5 border border-black bg-lightBg6 dark:text-black rounded-lg dark:bg-HelikaColor5 hover:bg-HelikaColor5a'
           onClick={() => {
             if (buttonOnClick) buttonOnClick()
           }}
@@ -64,7 +64,7 @@ export function InputSection({
     <RiErrorWarningFill
       data-tip={warning}
       size={'1.15em'}
-      className="text-black dark:text-referralMintYellowAlt my-auto"
+      className="text-black dark:text-HelikaYellowAlt my-auto"
     />
   );
 
@@ -74,10 +74,10 @@ export function InputSection({
         <div className="flex flex-row justify-between">
           <ReactTooltip />
           <div
-            className={ (isEntryValid ? (inModal ? 'dark:text-gray-400' : (disabled ? "dark:text-gray-400 text-lg" : "dark:text-referralMintColor text-lg")) : "text-semanticRed text-lg") + " w-full flex flex-row space-x-2"}
+            className={ (isEntryValid ? (inModal ? 'dark:text-gray-400' : (disabled ? "dark:text-gray-400 text-lg" : "dark:text-HelikaColor text-lg")) : "text-semanticRed text-lg") + " w-full flex flex-row space-x-2"}
           >
             <div>{title}</div>
-            { hint && <ImInfo data-tip={hint} className={(inModal ? 'dark:text-gray-400' : (disabled ? "dark:text-gray-400 text-lg" : "dark:text-referralMintColor text-lg")) + " my-auto"}/> }
+            { hint && <ImInfo data-tip={hint} className={(inModal ? 'dark:text-gray-400' : (disabled ? "dark:text-gray-400 text-lg" : "dark:text-HelikaColor text-lg")) + " my-auto"}/> }
             { warningDiv }
           </div>
           { buttonDiv }
@@ -94,7 +94,7 @@ export function InputSection({
             isTextField
               ?
                 <textarea 
-                  className={extraInputClasses + ' border border-black w-full max-h-[33vh] min-h-[120px] rounded-lg p-3 mt-2 bg-white/0 dark:bg-darkBg4 dark:focus:text-referralMintColor8' + ((value && value.trim() !== '') ? ' dark:text-referralMintColor8' : ' dark:text-gray-500') + (disabled ? ' bg-white/50 dark:bg-darkBg2 cursor-not-allowed' : '')}
+                  className={extraInputClasses + ' border border-black w-full max-h-[33vh] min-h-[120px] rounded-lg p-3 mt-2 bg-white/0 dark:bg-darkBg4 dark:focus:text-HelikaColor8' + ((value && value.trim() !== '') ? ' dark:text-HelikaColor8' : ' dark:text-gray-500') + (disabled ? ' bg-white/50 dark:bg-darkBg2 cursor-not-allowed' : '')}
                   rows={rows}
                   value={value}
                   onChange={(e) => {
@@ -106,7 +106,7 @@ export function InputSection({
                 />
               :
                 <input
-                  className={extraInputClasses + ' border border-black w-full text-ellipsis rounded-lg p-1 px-3 mt-2 bg-white dark:bg-darkBg4 dark:focus:text-referralMintColor8' + ((value && value.trim() !== '') ? ' dark:text-referralMintColor8' : ' dark:text-gray-500')  + (disabled ? ' cursor-not-allowed bg-white/0 dark:bg-darkBg2' : '')}
+                  className={extraInputClasses + ' border border-black w-full text-ellipsis rounded-lg p-1 px-3 mt-2 bg-white dark:bg-white dark:focus:text-black' + ((value && value.trim() !== '') ? ' dark:text-black' : ' dark:text-gray-500')  + (disabled ? ' cursor-not-allowed bg-white/0 dark:bg-darkBg2' : '')}
                   value={value}
                   onChange={(e) => {
                     if (setIsEntryValid) setIsEntryValid(true);

@@ -8,6 +8,10 @@
   --toastify-text-color-light: white;
   --toastify-color-progress-light: #38FDCE;
   --toastify-font-family: 'SF Compact';
+  min-height: 100%;
+  min-width: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 
@@ -53,10 +57,10 @@ code {
   cursor: pointer;
 }
 
-html, body, .App, .App>div {
-  height: 100%;
+html, body, .App {
   font-family: 'SF Compact';
-  background-color: '#1A323F';
+  background-color: black;
+  height: 100%;
 }
 
 body {
@@ -66,11 +70,10 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #07141B;
 }
 
 html.dark {
-  background-color: #07141B;
+  background-color: black;
 }
 
 
@@ -133,4 +136,58 @@ background-color: #040C10;
 .dark::-webkit-scrollbar-thumb:vertical {
 height: 30px;
 background-color: #0E2735;
+}
+
+.flexcol {
+  display: flex;
+  flex-direction: column;
+}
+
+.flexrow {
+  display: flex;
+  flex-direction: row;
+}
+
+
+.expand {
+  height: 100%;
+  width: 100%;
+}
+
+.spaceAround {
+  justify-content: space-around;
+}
+
+.full {
+  height: 100%;
+  width: 100%;
+}
+
+.helikaGradient {
+  background: linear-gradient(to right,#EA335F, #612EA6) !important;
+  color:white !important;
+  border-radius: 100vmax !important;
+  font-weight: 900 !important;
+  border: none !important;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+.helikaButtonClass {
+  background: linear-gradient(to right,#EA335F, #612EA6) !important;
+  color:white !important;
+  border-radius: 100vmax !important;
+  font-weight: 900 !important;
+  border: none !important;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+  cursor: pointer;
+}
+
+.minWidth10 {
+  min-width: 10em;
 }
