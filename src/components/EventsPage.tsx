@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
-import Helika from "helika-sdk";
-import { BaseURLOptions } from 'helika-sdk';
+import Helika, {EventsBaseURL} from "helika-sdk";
 import { useState } from "react";
 import { InputSection } from "./InputSection";
 
@@ -14,10 +13,7 @@ export function EventsPage() {
       console.error('Must have valid API Key');
       return;
     }
-    const helikaSDK = new Helika.EVENTS({
-      apiKey: apiKey,
-      baseUrlOption: BaseURLOptions.EVENTS_DEV
-    });
+    const helikaSDK = new Helika.EVENTS(apiKey,EventsBaseURL.EVENTS_DEV);
     setSdk(helikaSDK);
   }
 

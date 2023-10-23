@@ -1,9 +1,8 @@
 import React from 'react';
 import { useState } from "react";
-import Helika from "helika-sdk";
+import Helika, { UABaseURL } from "helika-sdk";
 import { InputSection } from "./InputSection";
 import { Link, useLocation } from "react-router-dom";
-import { BaseURLOptions } from 'helika-sdk';
 
 export function ApiForm() {
 
@@ -20,10 +19,7 @@ export function ApiForm() {
 
   async function logReferral() {
 
-    const helikaSDK = new Helika.UA({
-      apiKey: api_key,
-      baseUrlOption: BaseURLOptions.UA_DEV
-    });
+    const helikaSDK = new Helika.UA(api_key,UABaseURL.UA_DEV);
     
     helikaSDK.logReferral(
       wallet_address,
@@ -42,10 +38,7 @@ export function ApiForm() {
 
   async function logView() {
 
-    const helikaSDK = new Helika.UA({
-      apiKey: api_key,
-      baseUrlOption: BaseURLOptions.UA_DEV
-    });
+    const helikaSDK = new Helika.UA(api_key,UABaseURL.UA_DEV);
 
     
     helikaSDK.logView(
@@ -62,10 +55,7 @@ export function ApiForm() {
 
   async function isAffiliate() {
 
-    const helikaSDK = new Helika.UA({
-      apiKey: api_key,
-      baseUrlOption: BaseURLOptions.UA_DEV
-    });
+    const helikaSDK = new Helika.UA(api_key,UABaseURL.UA_DEV);
     
     helikaSDK.isAmbassador(
       custom_url,
