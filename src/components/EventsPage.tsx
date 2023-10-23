@@ -32,12 +32,12 @@ export function EventsPage() {
       game_id: 'SDK Example Project',
       event_type: 'Test',
       event: {
-        id: 1,
+        id: 2,
         info: 'From Example Project, send event button'
       }
     }];
 
-    sdk.createEvent('321',events);
+    sdk.createEvent(events);
   }
 
   async function sendUAEvent(){
@@ -45,12 +45,18 @@ export function EventsPage() {
       console.error('You must initiate the sdk first');
       return;
     }
-    sdk.createUAEvent('123',[{
-      event_type: 'Test UA Event Button',
+
+
+    let events = [{
+      game_id: 'SDK Example Project',
+      event_type: 'Test',
       event: {
-        type: 'Button 3'
+        id: 3,
+        info: 'From Example Project, send ua event button'
       }
-    }])
+    }];
+
+    sdk.createUAEvent(events);
   }
 
   async function generateFakeData(){
