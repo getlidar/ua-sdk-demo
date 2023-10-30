@@ -59,14 +59,14 @@ export function EventsPage() {
   //    toast.error('You must initiate the sdk first');
   //    return;
   //  }
-    sdk.createEvent(events);
-  }
+  //  sdk.createEvent(events);
+  //}
 
-  async function sendUAEvent() {
-    if (!sdk) {
-      console.error('You must initiate the sdk first');
-      return;
-    }
+  //async function sendUAEvent() {
+  //  if (!sdk) {
+  //    console.error('You must initiate the sdk first');
+  //    return;
+  //  }
 
   //  try {
   //    let events = [{
@@ -239,7 +239,6 @@ export function EventsPage() {
           >
             Send UA Event
           </button>*/}
-          </button>
 
           <InputSection
             title='Wallet Address'
