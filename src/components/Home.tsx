@@ -6,14 +6,14 @@ export function Home() {
       <div className="h-screen flexcol justify-center">
         <div className="flexrow spaceAround">
           <Link
-            to={'http://localhost:3001/events-example'}
+            to={'/events-example'}
           >
             <div className="helikaButtonClass px-10">
               Events
             </div>
           </Link>
           <Link
-            to={'http://localhost:3001/ua-example'}
+            to={'/ua-example'}
           >
             <div className="helikaButtonClass px-10">
               UA

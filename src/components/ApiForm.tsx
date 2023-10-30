@@ -81,7 +81,7 @@ export function ApiForm() {
         className='w-full flexrow mb-5'
       >
         <Link
-          to={'http://localhost:3001'}
+          to={'/'}
         >
           <button className='helikaButtonClass px-10'>
             Back
