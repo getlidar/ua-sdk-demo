@@ -3,6 +3,7 @@ import Helika, { EventsBaseURL } from "helika-sdk";
 import { useState } from "react";
 import { InputSection } from "./InputSection";
 import { createAbandonMatch, createAiInspector, createJoinMatch, createLeaderboard, createOnDownload, createOnPageLand, createOnPurchase, createOnRegister, createSessionStart, createSimulation, createTraining, createTutorial, randomize } from "../data-generation/GenerateData";
+
 import { Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from "@mui/material";
 import { toast } from "react-toastify";
 
@@ -58,6 +59,14 @@ export function EventsPage() {
   //    toast.error('You must initiate the sdk first');
   //    return;
   //  }
+    sdk.createEvent(events);
+  }
+
+  async function sendUAEvent() {
+    if (!sdk) {
+      console.error('You must initiate the sdk first');
+      return;
+    }
 
   //  try {
   //    let events = [{
@@ -230,6 +239,7 @@ export function EventsPage() {
           >
             Send UA Event
           </button>*/}
+          </button>
 
           <InputSection
             title='Wallet Address'
