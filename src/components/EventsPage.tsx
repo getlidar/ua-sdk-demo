@@ -365,12 +365,10 @@ export default function EventsPage() {
           setEditableUserDetails(e.currentTarget.value)
         }}
       />
-
       <div>Result:</div>
-
       <textarea
-        style={{ maxWidth: '50vw', width: '100%', marginBottom: '2em' }}
-        rows={10}
+        style={{ maxWidth: '50vw', width: '100%', minWidth: '40em' }}
+        rows={6}
         value={resp}
         onChange={() => { }}
       />
