@@ -1,14 +1,12 @@
 import { Route, Routes } from "react-router-dom";
 import { Home } from './Home';
-import { ApiForm } from "./ApiForm";
-import { EventsPage } from "./EventsPage";
+import EventsPage from "./EventsPage";
 
 export function Body() {
-  return(
+  return (
     <Routes>
-      <Route path="/events-example" element={<EventsPage/>} />
-      <Route path="/ua-example" element={<ApiForm/>} />
-      <Route path="*" element={<Home/>} />
+      <Route path="/events-example" element={<EventsPage />} />
+      <Route path="*" element={<Home />} />
     </Routes>
   );
 }
